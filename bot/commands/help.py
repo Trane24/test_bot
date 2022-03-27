@@ -1,5 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher.filters import CommandObject
+from aiogram.types import InlineKeyboardButton
 
 from bot.commands.bot_commands import bot_commands
 
@@ -25,7 +26,14 @@ async def help_func(message: types.Message):
 
 
 async def call_help_func(call: types.CallbackQuery):
-    await call.message.edit_text(                                #call.message.answer ||| call.answer
-        "Это охуеть кнопка"
-
+    await call.message.edit_text(  # call.message.answer ||| call.answer
+        "Это охуеть кнопка",
+        reply_markup=call.message.reply_markup#.inline_keyboard.append([InlineKeyboardButton(text="back", callback_data="clear")])
     )
+
+#
+# async def clear_call_help_func(call: types.CallbackQuery):
+#     await call.message.edit_text(
+#
+#         "fshfdhserhefhtewh"
+#     )
